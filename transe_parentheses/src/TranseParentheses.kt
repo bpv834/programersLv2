@@ -20,7 +20,7 @@ class Solution {
             }
         }
         // 올바른 문자열이라면
-        if(isBalanceParentheses(u)){
+        if(isTrueParentheses(u)){
             return u + dfs(v)
         }else{
             // 그렇지 않다면
@@ -43,8 +43,8 @@ class Solution {
         }
         return cnt
     }
-    // 균형잡힌 괄호인가?
-    fun isBalanceParentheses(str : String): Boolean{
+    // 올바른 괄호인가?
+    fun isTrueParentheses(str : String): Boolean{
         val stack = Stack<Char>()
 
         for(i in str.indices){
