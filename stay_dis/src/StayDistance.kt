@@ -19,7 +19,7 @@ class Solution {
                                     }
                             }
                             if(res == 0) break
-                        }
+                        }//
             }
             if(res == 0) answer.add(0) else answer.add(1)
         }
