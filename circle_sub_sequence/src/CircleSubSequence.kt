@@ -19,4 +19,22 @@ class Solution {
 
         return sumSet.size
     }
+
+    fun solution2(elements: IntArray): Int {
+        var answer: Int = 0
+        val mySet = mutableSetOf<Int>()
+        val expand = elements + elements
+        val prefix = IntArray(expand.size + 1)
+        for(i in 1 .. expand.size){
+            prefix[i] = prefix[i-1] + expand[i-1]
+        }
+        println(prefix.joinToString())
+        for(i in 1 .. elements.size){
+            for(j in i until i+elements.size){
+                val x = prefix[j]-prefix[i-1]
+                mySet.add(x)
+            }
+        }
+        return mySet.size
+    }
 }
