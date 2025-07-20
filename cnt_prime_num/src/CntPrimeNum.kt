@@ -1,23 +1,37 @@
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
 class Solution {
     fun solution(n: Int, k: Int): Int {
-        val primes = IntArray(1000001){1}
-        primes[0]=0
-        primes[1]=0
-        for(i in 2..(Math.sqrt(1000000.0).toInt())){
-            if(primes[i] == 1){
-                for(j in i*i.. 1000000 step i){
-                    primes[j] = 0
-                }
-            }
-        }
         var answer: Int = 0
-        println(n.toString(k))
         val bin = n.toString(k)
-        val list = bin.split("0").filter{it!=""}.map{it.toInt()}
-        println(list)
-
-
-
+        println(bin.split("0"))
+        bin.split("0").filter{it!=""}.map{it.toLong()}.forEach{
+            if(isPrime(it)) answer ++
+        }
         return answer
+    }
+    fun isPrime(num : Long):Boolean{
+        if(num <=1) return false
+        for(i in 2..(Math.sqrt(num.toDouble()).toLong())){
+            if(num%i == 0L) return false
+        }
+        return true
     }
 }
