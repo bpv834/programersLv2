@@ -1,5 +1,6 @@
 import java.util.*
 class Solution {
+    // 다시풀기
     fun solution(order: IntArray): Int {
         var answer: Int = 0
         val stack = Stack<Int>()
