@@ -10,11 +10,14 @@ class Solution {
         if((sum1+sum2)%2L != 0L) return -1
         val target = (sum1+sum2)/2
 
-        val limit = (sum1+sum2)*2
+        val limit = (q1.size)*3 // 두 큐의 크기가 같다면 *2는 서로 자리를 바꾼거 나머지 한번은 자리를 바꾸고 한쪽으로 전부 옮긴경우
+        // 1234
+        // 5678
+
+        // 56781234 ( size*3 )횟수
+
         var cnt=0
 
-        // limit를 구하는게 킥이다.
-        // q1,과 q2가 전부 순환돼 원위치로 오는경우는 크기의 합 *2 이다.
         while(cnt<=limit){
             //  println("cnt=$cnt / sum1 = $sum1 / q1 = $q1 / sum2 = $sum2 / q2= $q2")
             if(sum1<target){
