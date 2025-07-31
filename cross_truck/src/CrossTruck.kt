@@ -27,3 +27,34 @@ fun solution(bridge_length: Int, weight: Int, truck_weights: IntArray): Int {
 
     return time
 }
+
+class Solution {
+    fun solution(bridge_length: Int, weight: Int, truck_weights: IntArray): Int {
+        val waitsQueue = LinkedList(truck_weights.toList())
+        val resQueue = LinkedList<Pair<Int,Int>>()
+        var sumW = 0
+        var t = 0
+        while(!waitsQueue.isEmpty() || !resQueue.isEmpty()){
+            t++
+
+            if(!resQueue.isEmpty()&&resQueue.peek().second + bridge_length == t){
+                sumW-=resQueue.peek().first
+                resQueue.poll()
+            }
+
+            if(resQueue.isEmpty()&& !waitsQueue.isEmpty()){
+                val w = waitsQueue.poll()
+                resQueue.add(Pair(w,t))
+                sumW += w
+            } else{
+                if(!waitsQueue.isEmpty()&&sumW+waitsQueue.peek()<=weight){
+                    val w = waitsQueue.poll()
+                    resQueue.add(Pair(w,t))
+                    sumW += w
+                }
+            }
+
+        }
+        return t
+    }
+}
